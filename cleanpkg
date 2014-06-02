@@ -1,0 +1,5 @@
+#!/bin/bash -ex
+
+for ext in deb dsc changes build debian.tar.gz upload; do
+	rm -f ../libsodium_*.${ext}
+done
