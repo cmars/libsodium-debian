@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+
+target_dir=$(pwd)/../..
+
+tag=0.5.0
+workdir=$(mktemp -d)
+
+cd ${workdir}
+git clone https://github.com/jedisct1/libsodium.git libsodium-${tag}
+(cd libsodium-${tag}; git checkout ${tag})
+tar czvf ${target_dir}/libsodium_${tag}.orig.tar.gz libsodium-${tag}
+
+rm -rf ${workdir}
+
