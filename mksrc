@@ -5,7 +5,7 @@ function revert_debfiles(){
 }
 
 # Get our current and last built revision
-REVNO=$(date '+%Y%m%d')+$(git rev-parse --short HEAD)
+REVNO=$(date '+%Y%m%d')+$(cd debian; git rev-parse --short HEAD)
 
 if [ -z "$1" ]; then
 	DISTS=$(distro-info --supported | egrep -v 'hardy|lucid|oneiric|saucy')
