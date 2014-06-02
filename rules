@@ -17,4 +17,10 @@ override_dh_install:
 
 # Tests may fail on build servers and aren't useful in release builds anyway
 override_dh_auto_test:
-	
+
+override_dh_auto_install:
+	dh_auto_install
+	for file in debian/tmp/usr/lib/*.la; do \
+		sed -i "/dependency_libs/ s/'.*'/''/" $$file ; \
+ 	done
+
