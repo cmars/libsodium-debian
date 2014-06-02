@@ -31,7 +31,7 @@ for d in $DISTS; do
 		sed -i -e "s/) \([a-zA-Z0-9].*\);/$1~rel$REVNO~$d) $d;/i" debian/changelog
 	fi
 	# Build source package
-	make debsrc
+	debuild -S -k8DDA301A
 	# Update changelog timestamp and committer
 	dch -r ""
 done
